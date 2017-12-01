@@ -1,0 +1,56 @@
+<section class="row">
+  <div class ="container">
+      <div class="page-header">
+        <h1>Jogging Time</h1>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-xs-4">
+          From:<input name="from" type="datetime-local" class="form-control" style="width:80%;float:right" ng-model="vm.from">
+        </div>
+        <div class="col-xs-4">
+          To:<input name="to" type="datetime-local" class="form-control" style="width:80%;float:right" ng-model="vm.to">
+        </div>
+      </div>
+      <br>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>date</th>
+            <th>distance</th>
+            <th>time</th>
+            <th>average speed</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <input type="datetime-local" class="form-control" ng-model="vm.user.date">
+            </td>
+            <td>
+              <input type="number" class="form-control" ng-model="vm.user.distance">
+            </td>
+            <td>
+              <input type="number" class="form-control" ng-model="vm.user.time">
+            </td>
+            <td>
+              <p>{{vm.showaverage()}}</p>
+            </td>
+            <td>
+              <button class="btn btn-primary" ng-click="vm.addInfo()" >Add Info</button>
+            </td>
+            <td><button class="btn btn-info"  ng-if="vm.auth.user.provider === 'manager'" ng-click="vm.update()" >Update</button>&nbsp;&nbsp;<button class="btn btn-info"  ng-if="vm.auth.user.provider === 'manager'" ng-click="vm.deselect()">Clear</button></td>
+          </tr>
+          <tr ng-repeat="user in vm.userlist| matchAccessLevel: vm.from:vm.to" >
+            <td>{{user.date}}</td>
+            <td>{{user.distance}}</td>
+            <td>{{user.time}}</td>
+            <td>{{user.average}}</td>
+            <td><button class="btn btn-danger" ng-if="vm.auth.user.provider === 'manager'" ng-click="vm.remove(user._id)">Remove</button></td>
+            <td><button class="btn btn-warning" ng-if="vm.auth.user.provider === 'manager'" ng-click="vm.edit(user._id)">Edit</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </h1>
+  </div>
+</section>
