@@ -26,7 +26,7 @@ Make sure you have installed all of the following prerequisites on your developm
 
 
 ```bash
-$ git clone https://github.com/DiegoAlves822/MEAN-voting-APP.git vote_app
+$ git clone https://github.com/AdamRoy822/MEAN-voting-APP.git vote_app
 ```
 
 Your application should run on port 3000 with the *development* environment configuration, so in your browser just go to [http://localhost:3000](http://localhost:3000)
